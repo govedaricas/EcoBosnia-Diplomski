@@ -1,0 +1,227 @@
+
+.card {
+    display: grid;
+    position: relative;
+    //width: 100%;
+    margin-bottom: 30px;
+    border-radius: 0px;
+    color: rgba(0, 0, 0, 0.87);
+    background: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card .card-image {
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -30px;
+   // border-radius: 6px;
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.card .card-image img {
+    width: 100%;
+    height: 100%;
+   // border-radius: 6px;
+    pointer-events: none;
+}
+
+.card .card-image .card-caption {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: #fff;
+    font-size: 1.3em;
+    text-shadow: 0 2px 5px rgba(33, 33, 33, 0.5);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.img-raised {
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.card .ftr {
+    margin-top: 15px;
+}
+
+.card .ftr div {
+    display: inline-block;
+}
+
+.card .ftr .author {
+    color: #888;
+}
+
+
+.card .ftr .stats {
+    position: relative;
+    top: 1px;
+    font-size: 14px;
+    float: right;
+    line-height: 30px;
+}
+
+
+/* ============ Card Table ============ */
+
+.table {
+    margin-bottom: 0px;
+}
+
+.card .table {
+    padding: 15px 30px; 
+}
+
+.card [class*="table-"] {
+    color: #FFFFFF;
+    //border-radius: 6px;
+}
+
+.card [class*="table-"] .card-caption a,
+.card [class*="table-"] .card-caption,
+.card [class*="table-"] .icon i {
+    color: #FFFFFF;
+}
+
+.card [class*="table-"] .icon i {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.card [class*="table-"] .author a,
+.card [class*="table-"] .ftr .stats,
+.card [class*="table-"] .category,
+.card [class*="table-"] .card-description {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.card [class*="table-"] .author a:hover,
+.card [class*="table-"] .author a:focus,
+.card [class*="table-"] .author a:active {
+    color: #FFFFFF;
+}
+
+.card [class*="table-"] h1 small,
+.card [class*="table-"] h2 small,
+.card [class*="table-"] h3 small {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* ============ Card Blog ============ */
+
+.card-blog {
+    margin-top: 30px;
+    height: 350px;
+}
+
+.card-blog .card-caption {
+    margin-top: 5px;
+}
+
+.card-blog .card-image + .category {
+    margin-top: 20px;
+}
+
+/* ============ Card Author ============ */
+
+.card .author .avatar {
+    width: 36px;
+    height: 36px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.card .author a {
+    color: #333;
+    text-decoration: none;
+}
+
+
+/* ============ Card Product ============ */
+
+
+.card-description p {
+    color: #888;
+}
+
+.card-caption,
+.card-caption a {
+    color: #333;
+    text-decoration: none;
+}
+
+.card-caption {
+    font-weight: 700;
+    font-family: "Roboto Slab", "Times New Roman", serif;
+}
+
+/* ============ Text Color ============ */
+
+.text-success {
+    color: #4caf50;
+}
+
+/*---------------------------------------------------------------------- /
+FONT AWESOME FA CLASS
+----------------------------------------------------------------------- */
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ======= GENERAL  ======= */
+
+h4, h6, .h1, .h2, .h3, .h4 {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+}
+
+a {
+    color: #9c27b0;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #9c27b0;
+    text-decoration: underline;
+}
+
+p {
+    color: #3C4857;
+}
+
+
+h4, .h4 {
+  font-size: 1.3em;
+  line-height: 1.55em;
+}
+
+
+h6, .h6 {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+.col-md-4{
+    margin-right: 20px;
+    width: 20%;
+}
+
+.div1{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
