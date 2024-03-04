@@ -10,6 +10,8 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import 'react-owl-carousel/src/OwlCarousel'
 import DestinationsCarousel from "./DestinationsCarousel";
 import Comments from "../../components/comments/Comments";
+import { LeafletMap } from "../../components/LeafletMap/LeafletMap";
+import "leaflet/dist/leaflet.css";
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.3/owl.carousel.min.js"></script>
 
@@ -83,9 +85,12 @@ export default function DestinationDetails(){
     </tr>
   </tbody>
 </table>
-   </div>
 
-   <Comments currentUserId="1" />
+<LeafletMap coordinates={[destination.coordinateA,destination.coordinateB]} destName={destination.name} />
+   </div>
+   
+
+   <Comments destinationId={id} currentUserId="1" />
       </div>
     )
 }

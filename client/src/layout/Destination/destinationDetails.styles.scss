@@ -31,10 +31,18 @@
     margin-top: 100px;
 }
 
+.leaflet-container{
+    height: 40vh;
+    width: 40vw;
+    border: none;
+}
 .tableAndMap{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: nowrap;
     background-color: #6998AB;
+
+
 
     .table{
         //padding: 40px;

@@ -7,7 +7,6 @@ import { signInUser } from '../Account/AccountSlice';
 import { useAppDispatch } from '../../app/store/configureStore';
 
 
-
   const defaultTheme = createTheme();
 
 
@@ -34,7 +33,6 @@ export default function SignIn(){
     return(
         <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
         <Box
           sx={{
             marginTop: 8,

@@ -13,6 +13,9 @@ namespace API.Entities
         public int CommentId { get; set; }
         public string UserId { get; set; }
         public virtual User User { get;set;}=new User();
+        public int DestinationId { get; set; }
+        [JsonIgnore]
+        public Destination Destination { get; set; }=new Destination();
         public string Body { get; set; }
         public int? ParentId { get; set; }
         public DateTime CreatedAt { get; set; }

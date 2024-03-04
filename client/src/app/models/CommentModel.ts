@@ -6,4 +6,5 @@ export interface CommentModel{
     parentId: null,
     type:string,
     createdAt: string,
+    destinationId:string,
 }

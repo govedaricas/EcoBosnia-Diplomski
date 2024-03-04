@@ -1,6 +1,7 @@
 
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace API.Entities
 {
@@ -11,6 +12,7 @@ namespace API.Entities
         {
             throw new NotImplementedException();
         }
+        [JsonIgnore]
         public  List<Comment>? Comments { get; set; }
     }
 }

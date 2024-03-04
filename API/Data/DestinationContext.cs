@@ -32,6 +32,10 @@ namespace API.Data
             .HasOne(c => c.User)
             .WithMany(u => u.Comments)  
             .HasForeignKey(c => c.UserId);
+            builder.Entity<Comment>()
+            .HasOne(c => c.Destination)
+            .WithMany(d => d.Comments)  
+            .HasForeignKey(c => c.DestinationId);
         }
         
     }

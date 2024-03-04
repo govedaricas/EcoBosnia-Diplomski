@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 
-import './styles.css'
 import { Destination } from './app/models/Destination';
 import { Outlet, useLocation } from 'react-router-dom';
 import NavBar from './components/NavBar/Navbar';

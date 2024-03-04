@@ -3,6 +3,7 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DestinationContext))]
-    partial class DestinationContextModelSnapshot : ModelSnapshot
+    [Migration("20240220135325_CommentsAdded")]
+    partial class CommentsAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
@@ -55,12 +58,6 @@ namespace API.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
-
-                    b.Property<float>("CoordinateA")
-                        .HasColumnType("REAL");
-
-                    b.Property<float>("CoordinateB")
-                        .HasColumnType("REAL");
 
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
@@ -171,13 +168,13 @@ namespace API.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3b59706a-c522-405d-a1ed-085e63bb2f16",
+                            Id = "fcd55b95-9ae2-41d2-84c1-d3bad5cfd539",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = "e9c18728-eb89-432c-b706-7e50d62673bc",
+                            Id = "3a259f78-aa6f-4ed1-8eea-4cc44ebcb657",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

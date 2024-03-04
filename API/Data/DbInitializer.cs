@@ -29,16 +29,17 @@ namespace API.Data
                 await userManager.AddToRolesAsync(user,new[] {"Member","Admin"});
 
             }
-            User user1 = context.Users.FirstOrDefault(u => u.UserName == "admin");
-
-            /* User user1=new User{
+            
+          //  User user1 =  context.Users.FirstOrDefault(u => u.UserName == "admin");
+          //  Destination dest1 =  context.Destinations.FirstOrDefault(d => d.Name == "Mostar");
+           /*  User user1=new User{
                 UserName="Srdjan",
                 Id="123",
                 Email="srdjan@mail.com",
                 PhoneNumber="066123123"
-            };*/
-            //if(context.Comments.Any()) return;
-            if(user1!=null)
+            }; */
+        /*    if(context.Comments.Any()) return;
+            if(user1==null)
             {var comments=new List<Comment>{
                 new Comment{
                    Body="FInal komentar",
@@ -46,20 +47,23 @@ namespace API.Data
                    CreatedAt=DateTime.Now,
                    Type="Tip1",
                    User=user1,
+                   Destination=dest1,
                 },
-               /* new Destination{
+                new Destination{
                     Name="Vrelo Miljacke",
                     Description="Izvor rijeke Miljacke, u blizini opstine Pale...",
                     ImageUrl="https://www.palelive.com/wp-content/uploads/2022/06/vrelo-miljacke5-gis.jpg",
                     Type="Izvor"
-                },*/
+                }, 
             };
 
             foreach (var comment in comments)
             {
+                comment.User=user1;
                 context.Comments.Add(comment);
             }
             context.SaveChanges();}
+            */
         }
         
     }

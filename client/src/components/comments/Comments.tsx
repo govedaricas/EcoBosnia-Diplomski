@@ -4,11 +4,18 @@ import { getComments as getCommentsApi,
 import Comment from "./Comment";
 import './comments.styles.scss';
 import CommentForm from "./CommentForm";
+import { CommentModel } from "../../app/models/CommentModel";
 
+interface Props{
+    currentUserId:string,
+    destinationId:string | undefined,
+}
 
-export default function Comments({currentUserId}:{currentUserId:string}){
+export default function Comments({currentUserId,destinationId}:Props){
     const[backendComments,setBackendComments]=useState([]);
     const[activeComment,setActiveComment]=useState(null);
+    const[comments,setComments]=useState<CommentModel[]>([]);
+ 
 
     const rootComments=backendComments.filter(
         (backendComment)=>backendComment.parentId===null
@@ -20,11 +27,47 @@ export default function Comments({currentUserId}:{currentUserId:string}){
         }
     const addComment=(text: string,parentId: null | undefined)=>{
         console.log('addComment',text,parentId);
-        createCommentApi(text,parentId).then(comment=>{
+        postData(text);
+
+    /*    createCommentApi(text,parentId).then(comment=>{
             setBackendComments([comment,...backendComments]);
         setActiveComment(null);
-        })
+        })*/
     }
+
+    const postData = async (text:string) => {
+        const dataToSend = {
+            "id": 0,
+            "body": text,
+            "parentId": 3,
+            "destinationId":destinationId,
+            "createdAt": "2024-02-20T16:39:10.939Z",
+            "type": "Edited",
+            "myProperty": 0
+        };
+      
+        try {
+          const response = await fetch('http://localhost:5000/api/Comments', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              // Add any other headers as needed
+            },
+            body: JSON.stringify(dataToSend),
+          });
+      
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+      
+          // Handle the response as needed
+          const responseData = await response.json();
+          console.log(responseData);
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      };
+
     const deleteComment=(commentId: any)=>{
         if(window.confirm('Are you sure that you want to remove comment')){
             deleteCommentApi(commentId).then(()=>{
@@ -48,20 +91,23 @@ export default function Comments({currentUserId}:{currentUserId:string}){
         })
     }
 
-
-
     useEffect(()=>{
-        getCommentsApi().then(data=>{
-            setBackendComments(data);
-        })
-    },[])
+        fetch(`http://localhost:5000/api/Comments`)
+    .then(response=>response.json())
+    .then(data=>{data.forEach((element:CommentModel) => {
+        if(element.destinationId==destinationId)
+        setComments(data);
+    }); /* setComments(data); */})
+    .then(data=>console.log(data))
+    .catch(error=>console.log(error))
+    },[comments]);
     return(
         <div className="comments">
             <h3 className="comments-title"></h3>
             <div className="comment-form-title">Write comment</div>
             <CommentForm submitLabel="Write" handleSubmit={addComment} />
             <div className="comments-container">
-                {rootComments.map(rootComment=>(
+                {comments.map(rootComment=>(
                     <Comment 
                     key={rootComment.id} 
                     comment={rootComment} 

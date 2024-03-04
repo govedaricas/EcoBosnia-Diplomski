@@ -21,8 +21,8 @@ export default function Comment({comment,replies,currentUserId,deleteComment,act
     const fiveMinutes=300000;
     const timePassed=new Date().getTime()-new Date(comment.createdAt).getTime() > fiveMinutes;
     const canReply=Boolean(currentUserId);
-    const canEdit=currentUserId===comment.userId && !timePassed;
-    const canDelete=currentUserId===comment.userId && !timePassed;
+    const canEdit=currentUserId===comment.userId; //&& !timePassed;
+    const canDelete=currentUserId===comment.userId; //&& !timePassed;
     const createdAt=new Date(comment.createdAt).toLocaleDateString();
     const isReplying=activeComment && activeComment.type ==='replying' && activeComment.id===comment.id;
     const isEditing=activeComment && activeComment.type ==='editing' && activeComment.id===comment.id;

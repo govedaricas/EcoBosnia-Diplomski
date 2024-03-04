@@ -29,7 +29,7 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Destination>> GetDestination(int id)
         {
-            return await _context.Destinations.FindAsync(id);
+            return await _context.Destinations.Include(d=>d.Comments).FirstOrDefaultAsync(d=>d.Id==id);
         }
 
         [HttpPost]
@@ -38,7 +38,7 @@ namespace API.Controllers
             _context.Destinations.Add(destination);
             await _context.SaveChangesAsync();
 
-            return await _context.Destinations.ToListAsync();
+            return await _context.Destinations.Include(d=>d.Comments).ToListAsync();
         }
     }
 }

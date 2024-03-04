@@ -4,4 +4,6 @@ export interface Destination {
     description: string;
     imageUrl: string;
     type: string;
+    coordinateA:number;
+    coordinateB:number;
   }
