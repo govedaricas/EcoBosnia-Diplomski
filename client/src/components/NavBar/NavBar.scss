@@ -1,6 +1,6 @@
 .navbar {
     --bs-bg-opacity: 1;
-    background-color: rgb(240, 250, 255,0);
+    //background-color: rgb(240, 250, 255,0);
     position: absolute;
     width: 100%;
     top: 0;
@@ -19,6 +19,44 @@ body[data-home="true"] .navbar {
     color: white;
     font-size: 18px;
     text-transform: uppercase;
+}
+.navbar-tekst-button{
+    font-size: 18px;
+    text-transform: uppercase;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+   border-radius: .25rem;
+   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+   cursor: pointer;
+    display: inline-flex;
+    text-decoration: none;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+transition: all 250ms;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+vertical-align: baseline;
+width: 140px;
+margin: 0 15px;
+
+&:hover,
+&:focus{
+border-color: rgba(0, 0, 0, 0.15);
+box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+color: rgba(0, 0, 0, 0.65);
+}
+&:hover{
+transform: translateY(-4px);
+}
+&:active{
+background-color: rgba(122, 145, 152, 0.667);
+border-color: rgba(0, 0, 0, 0.15);
+box-shadow: rgba(0, 0, 0, 0.9) 0 2px 4px;
+color: rgba(0, 0, 0);
+transform: translateY(0);
+}
 }
 .logo{
     width: 80px;

@@ -1,3 +1,5 @@
+import { User } from "./User";
+
 export interface CommentModel{
     id: string,
     body: string,
@@ -7,4 +9,5 @@ export interface CommentModel{
     type:string,
     createdAt: string,
     destinationId:string,
+    user:User,
 }

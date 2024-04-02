@@ -60,7 +60,8 @@ namespace API.Controllers
             return new UserDto
             {
                 Email=user.Email,
-                Token=await _tokenService.GenerateToken(user)
+                Token=await _tokenService.GenerateToken(user),
+                Username=user.UserName
             } ;
         }
     }

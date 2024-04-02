@@ -2,7 +2,7 @@
     //padding: 0 20px;
     max-width: 1000px;
     width: 100%;
-    margin: 40px ;
+    margin: 50px ;
     text-align: center; /* Center horizontally */
     height: 20vh;
     max-height: 500px;
@@ -17,6 +17,8 @@
 .slideItem{
     height: 20vh;
   background: #EEE;
+  border-radius: 10%;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,7 +28,7 @@
     padding: 0;
 }
 .sc-bdVaJa{
-    height: 20vh;
+    height: 25vh;
     width: 100%;
     position: relative;
     //top: 300px;
@@ -48,7 +50,7 @@
   transform: translateY(-50%);
 }
 .ldTBTR{
-    left:915px;
+    left:980px;
 }
 
 

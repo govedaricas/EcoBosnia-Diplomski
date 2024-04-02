@@ -7,9 +7,11 @@ interface Props{
 }
 
 export default function DestinationList({destinations}:Props){
+    
     return(
         <div className="div1" >
-            {destinations.map(destination=>(
+            {
+            destinations.map(destination=>(
                 <DestinationCard key={destination.id}  destination={destination} />
             )
             )}

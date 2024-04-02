@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 
 import { Destination } from './app/models/Destination';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, Route, useLocation } from 'react-router-dom';
 import NavBar from './components/NavBar/Navbar';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAppDispatch } from './app/store/configureStore';
 import { fetchCurrentUser } from './components/Account/AccountSlice';
+import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
 
 function App() {
   const[destinations,setDestinations]=useState<Destination[]>([]);
@@ -29,7 +31,7 @@ function App() {
       <>
         {(!isHomePage) && <NavBar />}
         <Outlet />
-        
+        <Footer/>
         
       </>
   )

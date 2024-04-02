@@ -49,8 +49,8 @@ export default function DestinationDetails(){
          </div>
       </div>
    </div>
-   <div className="carousel-wrapper">
-      <h3>More images</h3>
+   <div className="carousel-wrapper"><br/>
+      <h1>More images</h1>
    <DestinationsCarousel  />
    </div>
    
@@ -81,16 +81,21 @@ export default function DestinationDetails(){
          <div className="tableContainer">
             <p>Popular activities: Activity1,activity2</p>
          </div>
+      
       </td>
     </tr>
   </tbody>
 </table>
 
+<div>
 <LeafletMap coordinates={[destination.coordinateA,destination.coordinateB]} destName={destination.name} />
+</div>
    </div>
    
 
+   <div className="destination-comments-div">
    <Comments destinationId={id} currentUserId="1" />
+   </div>
       </div>
     )
 }

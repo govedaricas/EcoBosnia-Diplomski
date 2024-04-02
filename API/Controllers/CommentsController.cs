@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,8 +16,10 @@ namespace API.Controllers
     public class CommentsController:ControllerBase
     {
         private readonly DestinationContext _context;
-        public CommentsController(DestinationContext context)
+        private readonly UserManager<User> _userManager;
+        public CommentsController(DestinationContext context, UserManager<User> userManager)
         {
+            _userManager = userManager;
             _context = context;
             
         }
@@ -34,7 +37,7 @@ namespace API.Controllers
         }
         [HttpPost]
         public async Task<ActionResult<Comment>> CreateComment(CommentsDto request){
-            var user=_context.Users.FirstOrDefault(u=>u.UserName=="bob");
+            var user=await _userManager.FindByNameAsync(User.Identity.Name); 
             
             var newComment=new Comment{
                 Body=request.Body,

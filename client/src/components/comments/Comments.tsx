@@ -15,6 +15,7 @@ export default function Comments({currentUserId,destinationId}:Props){
     const[backendComments,setBackendComments]=useState([]);
     const[activeComment,setActiveComment]=useState(null);
     const[comments,setComments]=useState<CommentModel[]>([]);
+    var change=0;
  
 
     const rootComments=backendComments.filter(
@@ -28,6 +29,7 @@ export default function Comments({currentUserId,destinationId}:Props){
     const addComment=(text: string,parentId: null | undefined)=>{
         console.log('addComment',text,parentId);
         postData(text);
+        change++;
 
     /*    createCommentApi(text,parentId).then(comment=>{
             setBackendComments([comment,...backendComments]);
@@ -45,15 +47,20 @@ export default function Comments({currentUserId,destinationId}:Props){
             "type": "Edited",
             "myProperty": 0
         };
+        const user=JSON.parse(localStorage.getItem('user')!);
       
         try {
           const response = await fetch('http://localhost:5000/api/Comments', {
             method: 'POST',
             headers: {
+              'Authorization': `Bearer ${user.token}`,
               'Content-Type': 'application/json',
+              'accept': 'text/plain',
+              
               // Add any other headers as needed
             },
             body: JSON.stringify(dataToSend),
+            
           });
       
           if (!response.ok) {
@@ -62,7 +69,9 @@ export default function Comments({currentUserId,destinationId}:Props){
       
           // Handle the response as needed
           const responseData = await response.json();
+          setBackendComments(responseData);
           console.log(responseData);
+          
         } catch (error) {
           console.error('Error:', error);
         }
@@ -94,13 +103,17 @@ export default function Comments({currentUserId,destinationId}:Props){
     useEffect(()=>{
         fetch(`http://localhost:5000/api/Comments`)
     .then(response=>response.json())
-    .then(data=>{data.forEach((element:CommentModel) => {
-        if(element.destinationId==destinationId)
-        setComments(data);
-    }); /* setComments(data); */})
+    .then(data=>{
+        const filteredComments = data.filter(comment => comment.destinationId == destinationId);
+        if (JSON.stringify(filteredComments) !== JSON.stringify(comments)) {
+            setComments(filteredComments);
+          }
+           // setComments(filteredComments);
+    })
     .then(data=>console.log(data))
     .catch(error=>console.log(error))
-    },[comments]);
+    },[comments,backendComments]);
+
     return(
         <div className="comments">
             <h3 className="comments-title"></h3>

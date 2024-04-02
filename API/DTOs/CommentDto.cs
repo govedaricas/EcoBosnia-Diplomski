@@ -10,6 +10,7 @@ namespace API.DTOs
     {
         public int Id { get; set; }
         public string Body { get; set; }
+        public virtual User User { get;set;}=new User();
         public int? ParentId { get; set; }
         public DateTime CreatedAt { get; set; }
         public int DestinationId { get; set; }

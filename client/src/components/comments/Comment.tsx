@@ -1,5 +1,5 @@
 import './comments.styles.scss';
-import userImage from '../../icons/user-icon.png';
+import userImage from '../../icons/user.png';
 import { CommentModel } from '../../app/models/CommentModel';
 import { deleteComment, updateComment } from '../../api/commentApi';
 import CommentForm from './CommentForm';
@@ -23,21 +23,22 @@ export default function Comment({comment,replies,currentUserId,deleteComment,act
     const canReply=Boolean(currentUserId);
     const canEdit=currentUserId===comment.userId; //&& !timePassed;
     const canDelete=currentUserId===comment.userId; //&& !timePassed;
-    const createdAt=new Date(comment.createdAt).toLocaleDateString();
+    const options={ day: 'numeric', month: 'numeric', year: 'numeric' };
+    const createdAt=new Date(comment.createdAt).toLocaleDateString('en-GB');
     const isReplying=activeComment && activeComment.type ==='replying' && activeComment.id===comment.id;
     const isEditing=activeComment && activeComment.type ==='editing' && activeComment.id===comment.id;
     const replyId=parentId?parentId:comment.id;
     return(
     <div className="comment">
-        <div className='comment-image-container'>
-            <img src={userImage}/>
-        </div>
         <div className='comment-right-part'>
-            <div className='comment-content'>
-                <div className='comment-author'>{comment.username}</div>
-                <div>{createdAt}</div>
-            </div>
+        <div>{createdAt}</div>
             {!isEditing && <div className='comment-text'>{comment.body}</div>}
+            <div className='comment-content'>
+                <img className='comment-image-container' src={userImage}/>
+                <div className='comment-author'>{comment.user.userName!.toUpperCase()}</div>
+                
+            </div>
+        
             {isEditing && (
                 <CommentForm 
                 submitLabel='Update' 

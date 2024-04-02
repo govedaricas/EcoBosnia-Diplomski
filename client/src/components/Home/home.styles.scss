@@ -26,7 +26,10 @@
 }
 
 #root{
-  background-color: rgb(240, 250, 255,0);
+  //background-color: rgb(240, 250, 255,0);
+
+ background: rgb(174,224,238);
+background: radial-gradient(circle, rgba(174,224,238,1) 0%, rgba(72,95,122,1) 100%);
 }
 body {
   color: #000000;
@@ -130,7 +133,7 @@ a {
 .services_text {
   width: 100%;
   float: left;
-  font-size: 16px;
+  font-size: 13px;
   color: white;
   margin: 0px;
 }
@@ -151,8 +154,67 @@ a {
 
 .services_img {
   width: 100%;
+  //background-size: cover;
+  border-radius: 15%;
+  height: 300px;
   float: left;
   text-align: center;
+}
+.home-tekst{
+  margin: 30px;
+  text-align: center;
+  h1{
+    font-family: 'Times New Roman', Times, serif;
+        //font-weight: bold;
+        color: aliceblue;
+        font-style: normal;
+        font-size: 4em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+}
+@mixin StilNaslova{
+  font-family: 'Times New Roman', Times, serif;
+        //font-weight: bold;
+        color: aliceblue;
+        font-style: normal;
+        font-size: 4em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.eco-adventure-name{
+  @include StilNaslova;
+  font-size: 20px;
+  &:hover,
+  &:focus{
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+  }
+  &:hover{
+    transform: translateY(-20px);
+  }
+}
+.home-hr{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+ ;
+  hr{
+    width: 12px;
+    border-width: 13px;
+    border-color: white;
+    border-style: dotted none none;
+    opacity: 100%;
+    transform: rotate(90deg);
+  }
+}
+
+.services_taital{
+  font-family: 'Times New Roman', Times, serif;
+}
+.home-images{
+  margin-top: 80px;
 }
 
 //SECTION 2 
@@ -191,18 +253,19 @@ a {
         .image-stack__item--bottom {
           position: absolute;
           right: 10%;
-          top: -50%;
+          top: -40%;
+          //height: 500px;
           width: 65%;
           z-index: -1; }
           .image-stack__item--bottom img {
-            border: 10px solid #fff; }
+            border: 5px solid #fff; }
         
         .image-stack__item--top {
           padding-top: 20px;
           padding-right: 30%;
           width: 70%; }
           .image-stack__item--top img {
-            border: 10px solid #fff;
+            border: 5px solid #fff;
             -webkit-box-shadow: 0 15px 30px -18px rgba(0, 0, 0, 0.2);
             box-shadow: 0 15px 30px -18px rgba(0, 0, 0, 0.2); }
         

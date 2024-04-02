@@ -1,0 +1,75 @@
+.footer {
+  //  background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle, rgb(38, 86, 99) 0%, rgb(10, 56, 108) 100%);
+  }
+  
+  .footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+    
+  }
+  
+  .footer-logo {
+    //margin-right: 150px;
+  }
+  
+  @mixin Animacija{
+    &:hover,
+    &:focus{
+      border-color: rgba(0, 0, 0, 0.15);
+      box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+      color: rgba(0, 0, 0, 0.65);
+    }
+    &:hover{
+      transform: translateY(-5px);
+    }
+  }
+  
+  .footer-menu {
+    color: white;
+    font-size: 18px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li {
+        display: inline-block;
+        margin-right: 30px;
+        cursor: pointer;
+
+      @include Animacija;
+    }
+
+  }
+ 
+  .footer-bottom {
+    margin-top:10px;
+    font-size: 14px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+    .icons{
+       //display: flex;
+        gap: 15px;
+        .icons-list{
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            .icon{
+              @include Animacija;
+            }
+        }
+        p{
+            padding: 20px;
+            margin: 0px 0px -20px 0px;
+        }
+    }
+  }
