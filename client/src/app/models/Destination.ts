@@ -6,4 +6,5 @@ export interface Destination {
     type: string;
     coordinateA:number;
     coordinateB:number;
+    detailsUrl: string;
   }

@@ -36,18 +36,19 @@ export default function Comments({currentUserId,destinationId}:Props){
         setActiveComment(null);
         })*/
     }
-
+    const user=JSON.parse(localStorage.getItem('user')!);
+    const date=new Date();
+    const currentDate=date.toISOString();
     const postData = async (text:string) => {
         const dataToSend = {
             "id": 0,
             "body": text,
             "parentId": 3,
             "destinationId":destinationId,
-            "createdAt": "2024-02-20T16:39:10.939Z",
+            "createdAt": currentDate,
             "type": "Edited",
             "myProperty": 0
         };
-        const user=JSON.parse(localStorage.getItem('user')!);
       
         try {
           const response = await fetch('http://localhost:5000/api/Comments', {
@@ -77,14 +78,34 @@ export default function Comments({currentUserId,destinationId}:Props){
         }
       };
 
-    const deleteComment=(commentId: any)=>{
-        if(window.confirm('Are you sure that you want to remove comment')){
-            deleteCommentApi(commentId).then(()=>{
-                const updatedBackendComments=backendComments.filter(
-                    (backendComment)=>backendComment.id!==commentId);
+    const deleteComment= async (commentId: any)=>{
+        if(window.confirm('Are you sure that you want to delete comment')){
+            const user=JSON.parse(localStorage.getItem('user')!);
+            try {
+                const response = await fetch(`http://localhost:5000/api/Comments?commentId=${commentId}`, {
+                  method: 'DELETE',
+                  headers: {
+                    'Authorization': `Bearer ${user.token}`,
+                    'accept': 'text/plain',
+                    
+                    // Add any other headers as needed
+                  },
+                  
+                });
+            
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
+                }
+            
+                // Handle the response as needed
+                const responseData = await response.json();
+                setBackendComments(responseData);
+                console.log(responseData);
                 
-                setBackendComments(updatedBackendComments);
-            });
+              } catch (error) {
+                console.error('Error:', error);
+              }
+            
         }
     }
     const updateComment=(text:string,commentId:string)=>{

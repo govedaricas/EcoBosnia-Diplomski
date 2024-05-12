@@ -13,10 +13,9 @@ namespace API.Entities
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public string Type { get; set; }
-
         public float CoordinateA { get; set; }
         public float CoordinateB { get; set; }
-               
+        public string DetailsUrl { get; set; }
         public  List<Comment>? Comments { get; set; }
     }
 }

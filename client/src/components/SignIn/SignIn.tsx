@@ -23,16 +23,19 @@ export default function SignIn(){
     async function submitForm(data:FieldValues){
      try {
       const result=await dispatch(signInUser(data));
-      navigate(location.state?.from ||'/about');
+      navigate(location.state?.from ||'/about/all');
      } catch (error) {
       console.error('Login failed',error);
      }
 
  }
+ const style={
+  marginBottom: '125px'
+}
     
     return(
         <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" style={style}>
         <Box
           sx={{
             marginTop: 8,

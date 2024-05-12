@@ -13,12 +13,16 @@ import Comments from "../../components/comments/Comments";
 import { LeafletMap } from "../../components/LeafletMap/LeafletMap";
 import "leaflet/dist/leaflet.css";
 
+import {storage} from "../../firebase";
+import {ref,listAll,getDownloadURL} from "firebase/storage";
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.3/owl.carousel.min.js"></script>
+
 
 export default function DestinationDetails(){
     const {id}=useParams<{id:string}>();
     const[destination,setDestination]=useState<Destination |null>(null);
-
+    const [imageList,setImageList]=useState([]);
   useEffect(()=>{
     fetch(`http://localhost:5000/api/Destination/${id}`)
     .then(response=>response.json())
@@ -26,6 +30,17 @@ export default function DestinationDetails(){
     .then(data=>console.log(data))
     .catch(error=>console.log(error))
   },[id])
+  const imageListRef=ref(storage,`${destination?.name}/`);
+
+  useEffect(()=>{
+   listAll(imageListRef).then((response)=>{
+     response.items.forEach((item)=>{
+       getDownloadURL(item).then((url)=>{
+         setImageList((prev)=>[...prev, url]);
+       });
+     })
+   })
+ },[])
 
   if(!destination) return <h3>Destination not found</h3>
 
@@ -51,7 +66,7 @@ export default function DestinationDetails(){
    </div>
    <div className="carousel-wrapper"><br/>
       <h1>More images</h1>
-   <DestinationsCarousel  />
+   <DestinationsCarousel imageListRef={imageListRef}/>
    </div>
    
    
@@ -79,7 +94,7 @@ export default function DestinationDetails(){
       <th scope="row">Activities and Attractions</th>
       <td>
          <div className="tableContainer">
-            <p>Popular activities: Activity1,activity2</p>
+            <p>Popular activities: {destination.detailsUrl} </p>
          </div>
       
       </td>

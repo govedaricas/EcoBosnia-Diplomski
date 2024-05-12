@@ -1,9 +1,9 @@
 .comments {
     margin-top: 20px;
-    background-color: #eef2f5;
-    padding: 20px;
+    background-color: #f3f6fa;
+    padding: 80px;
     //OVO JE NAKNADNO DODATO
-    width: 50%;
+    width: 60%;
     
     display: flex;
     flex-direction: column;
@@ -11,11 +11,12 @@
   }
   
   .comments-title {
-    font-size: 30px;
+    font-size: 40px;
     margin-bottom: 20px;
   }
   
   .comments-container {
+    
     margin-top: 40px;
   }
   
@@ -24,15 +25,17 @@
   }
   
   .comment-form-textarea {
-    width: 100%;
-    height: 80px;
+    width: 120%; //120%
+    margin-left: -20px;
+    height: 60px;
+    resize: none;
     margin-bottom: 8px;
     margin-top: 8px;
     border: 1px solid rgb(107, 114, 12);
   }
   
   .comment-form-button {
-    background-color: #56575b;
+    background-color: #c0c2c8;
          border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: .25rem;
         box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
@@ -50,6 +53,7 @@
   vertical-align: baseline;
   width: 140px;
   margin: 0 15px;
+  margin-left: -20px;
 
   &:hover,
   &:focus{
@@ -82,8 +86,8 @@
   .comment {
     display: flex;
     margin-bottom: 28px;
-    //height: 130px;
-    width: 450px;
+    height: 115px;
+    width: 500px;
 	background-color: white;
 	border-radius: 4px;
 	box-shadow: 10px 10px 5px #aaaaaa;
@@ -99,6 +103,9 @@
   
   .comment-right-part {
     width: 100%;
+    .writeTime{
+      margin-bottom: -10px;
+    }
   }
   
   .comment-content {
@@ -123,6 +130,8 @@
     font-weight: 500;
     color: #56575b;
     padding: 10px;
+    padding-top: 2px;
+    padding-bottom: 0px;
     margin: 0;
   }
   
@@ -131,7 +140,8 @@
     font-size: 12px;
     color: rgb(51, 51, 51);
     cursor: pointer;
-    margin-top: 8px;
+    padding: 3px;
+   // margin-top: 4px;
   }
   
   .comment-action {

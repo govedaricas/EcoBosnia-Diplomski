@@ -26,9 +26,12 @@ export default function SignUp(){
       });
     }
   }
+  const style={
+    marginBottom: '125px'
+  }
     return(
       <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" style={style}>
         <Box
           sx={{
             marginTop: 8,

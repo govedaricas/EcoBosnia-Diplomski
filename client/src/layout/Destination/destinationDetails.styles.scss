@@ -54,6 +54,8 @@
 .tableAndMap{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     flex-wrap: nowrap;
    // background-color: #6998AB;
    background: rgb(174,224,238);
@@ -64,7 +66,8 @@
         //padding: 40px;
         margin: 3%;
         margin-top: 5%;
-        width: 50%;
+        height: 200px;
+        width: 30%;
         border: 1px solid white;
         tr{
             background-color: rgb(255, 255, 255,0.01);

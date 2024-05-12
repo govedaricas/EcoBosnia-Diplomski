@@ -26,13 +26,13 @@ export default function DestinationCard({destination}:Props){
         <a  href={`/destination/${id}`}>{name}</a>
         </h4>
             <p className="card-description" >{`${description.substring(0,41)} ...`}</p>
-            <div className="ftr">
+            {/* <div className="ftr">
                 <div className="author">
                     <a href="#"> <img src="http://adamthemes.com/demo/code/cards/images/avatar3.png" alt="..." className="avatar img-raised"></img> <span>Mary Dunst</span> </a>
                 </div>
-                <div className='stats'> <FontAwesomeIcon icon={faHeart} /> 342 &nbsp; <FontAwesomeIcon icon={faComment} /> 45 </div>
+                <div className='stats'> <FontAwesomeIcon icon={faHeart} /> 342 &nbsp; <FontAwesomeIcon icon={faComment} /> 45 </div> 
                 
-            </div>
+            </div> */}
         </div>
     </div>
         </div>

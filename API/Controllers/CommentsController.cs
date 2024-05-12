@@ -57,5 +57,26 @@ namespace API.Controllers
             return Ok(await _context.Comments.Include(c=>c.User).ToListAsync());
 
         }
+
+        [HttpDelete]
+        public async Task<ActionResult<List<Comment>>> DeleteComment(int commentId)
+        {
+            try
+            {
+                var comment = await _context.Comments.FindAsync(commentId);
+                if (comment == null)
+                {
+                    return NotFound(); // Comment not found
+                
+                }
+                _context.Comments.Remove(comment);
+                await _context.SaveChangesAsync(); // Deletion successful
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error deleting comment: {ex.Message}");
+            }
+            return await _context.Comments.Include(c=>c.User).ToListAsync();
+        }
     }
 }

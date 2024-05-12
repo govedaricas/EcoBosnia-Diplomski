@@ -10,4 +10,5 @@ export interface CommentModel{
     createdAt: string,
     destinationId:string,
     user:User,
+    commentId:string
 }

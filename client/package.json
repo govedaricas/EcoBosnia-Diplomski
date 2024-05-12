@@ -19,10 +19,12 @@
     "@mui/icons-material": "^5.15.7",
     "@mui/material": "^5.15.7",
     "@reduxjs/toolkit": "^2.1.0",
+    "@types/uuid": "^9.0.8",
     "antd": "^5.14.0",
     "aos": "^3.0.0-beta.6",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.2",
+    "firebase": "^10.11.0",
     "jquery": "^3.7.1",
     "leaflet": "^1.9.4",
     "leaflet-routing-machine": "^3.2.12",
@@ -41,7 +43,8 @@
     "react-touch-carousel": "^0.10.2",
     "redux": "^5.0.1",
     "sass": "^1.70.0",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.8",

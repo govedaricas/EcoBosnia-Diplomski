@@ -12,7 +12,7 @@ interface Props{
 export default function CommentForm({handleSubmit,submitLabel,hasCancelButton,initialText="",handleCancel}:Props){
     const[text,setText]=useState(initialText);
 
-    const isTextareaDisabled=text.length===0;
+    const isTextareaDisabled=text.length==0;
 
     const onSubmit=(event: { preventDefault: () => void; })=>{
         event.preventDefault();
@@ -24,7 +24,9 @@ export default function CommentForm({handleSubmit,submitLabel,hasCancelButton,in
             <textarea 
             className='comment-form-textarea' 
             value={text} 
-            onChange={(e)=>setText(e.target.value)} />
+            onChange={(e)=>setText(e.target.value)} 
+            placeholder="Write comment..."
+            />
         
         <button className='comment-form-button' disabled={isTextareaDisabled}>{submitLabel}</button>
         {hasCancelButton && (

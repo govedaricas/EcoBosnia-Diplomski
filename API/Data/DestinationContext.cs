@@ -18,7 +18,6 @@ namespace API.Data
         public DbSet<Destination> Destinations { get; set; }
         public DbSet<Comment> Comments{get;set;}
 
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -36,6 +35,7 @@ namespace API.Data
             .HasOne(c => c.Destination)
             .WithMany(d => d.Comments)  
             .HasForeignKey(c => c.DestinationId);
+
         }
         
     }

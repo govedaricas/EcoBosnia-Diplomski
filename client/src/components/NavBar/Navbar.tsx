@@ -25,7 +25,7 @@ function NavBar() {
           <Navbar.Brand href="/" className='logo' style={{color:'white'}}><img src={logo} className='logo'></img></Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/home" className='navbar-tekst'>Home</Nav.Link>
-            <Nav.Link href="/about/all" className='navbar-tekst'>About</Nav.Link>
+            <Nav.Link href="/about/all" className='navbar-tekst'>Explore</Nav.Link>
 
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3" className='navbar-tekst'>Action</NavDropdown.Item>

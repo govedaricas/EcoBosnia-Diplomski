@@ -32,7 +32,7 @@ export const fetchCurrentUser=createAsyncThunk<User>(
         thunkAPI.dispatch(setUser(JSON.parse(localStorage.getItem('user')!)));
         try {
             const user=await agent.Account.currentUser();
-            console.log("CURRENT",user);
+            console.log("CURRENT",user.username);
             localStorage.setItem('user',JSON.stringify(user));
             return user;
         } catch (error:any) {
