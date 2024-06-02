@@ -81,15 +81,15 @@ export default function Home(){
             <div className="row">
                <div className="col-md-4">
                   <div><img src={rafting} className="services_img"></img></div>
-                  <a className="eco-adventure-name" href="/about/rafting">Rafting</a>
+                  <a className="eco-adventure-name" href="/about/Rafting">Rafting</a>
                </div>
                <div className="col-md-4">
                   <div><img src={hiking} className="services_img"></img></div>
-                   <a className="eco-adventure-name" href="/about/Planina">Hiking</a>
+                   <a className="eco-adventure-name" href="/about/Hiking">Hiking</a>
                </div>
                <div className="col-md-4">
                   <div><img src={camping} className="services_img"></img></div>
-                  <a className="eco-adventure-name" href="#">Camping</a>
+                  <a className="eco-adventure-name" href="/about/Camping">Camping</a>
                </div>
             </div>
          </div>
